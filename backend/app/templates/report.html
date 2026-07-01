@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ title }}</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1e293b;
+      margin: 0;
+      padding: 32px;
+      background: #f8fafc;
+      line-height: 1.5;
+    }
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 32px;
+    }
+    h1 { margin: 0 0 4px; font-size: 24px; color: #0f766e; }
+    .meta { color: #64748b; font-size: 13px; margin-bottom: 24px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .card {
+      background: #f0fdfa;
+      border: 1px solid #99f6e4;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .card .label { font-size: 11px; text-transform: uppercase; color: #0f766e; font-weight: 600; }
+    .card .value { font-size: 18px; font-weight: 700; margin-top: 4px; }
+    h2 { font-size: 16px; margin: 24px 0 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 8px; border-bottom: 1px solid #f1f5f9; }
+    th { color: #64748b; font-weight: 600; font-size: 11px; text-transform: uppercase; }
+    .insight {
+      background: #f0fdfa;
+      border-left: 3px solid #14b8a6;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #7c3aed;
+      background: #ede9fe;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-right: 6px;
+    }
+    .footer { margin-top: 32px; font-size: 11px; color: #94a3b8; text-align: center; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { border: none; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>{{ title }}</h1>
+    <p class="meta">
+      {{ filename }} · {{ transaction_count }} transactions
+      {% if period_start and period_end %}· {{ period_start }} to {{ period_end }}{% endif %}
+      <br />Generated {{ generated_at }}
+    </p>
+
+    <div class="grid">
+      <div class="card"><div class="label">Income</div><div class="value">{{ total_income }}</div></div>
+      <div class="card"><div class="label">Spend</div><div class="value">{{ total_spend }}</div></div>
+      <div class="card"><div class="label">Savings</div><div class="value">{{ savings }}</div></div>
+      <div class="card"><div class="label">Savings Rate</div><div class="value">{{ savings_rate }}</div></div>
+    </div>
+
+    {% if biggest_debit %}
+    <h2>Biggest Transaction</h2>
+    <p>{{ biggest_debit.description }} · {{ biggest_debit.date }} · {{ biggest_debit.amount }} ({{ biggest_debit.category }})</p>
+    {% endif %}
+
+    <h2>Top Categories</h2>
+    <table>
+      <thead><tr><th>Category</th><th>Amount</th><th>Share</th><th>Count</th></tr></thead>
+      <tbody>
+        {% for c in top_categories %}
+        <tr>
+          <td>{{ c.category }}</td>
+          <td>{{ c.amount }}</td>
+          <td>{{ c.pct }}%</td>
+          <td>{{ c.count }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% if monthly_spend %}
+    <h2>Monthly Spend</h2>
+    <table>
+      <thead><tr><th>Month</th><th>Spend</th></tr></thead>
+      <tbody>
+        {% for m in monthly_spend %}
+        <tr><td>{{ m.month }}</td><td>{{ m.amount }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    {% if recurring_groups %}
+    <h2>Recurring Payments ({{ recurring_total }}/month)</h2>
+    <table>
+      <thead><tr><th>Label</th><th>Category</th><th>Frequency</th><th>Amount</th></tr></thead>
+      <tbody>
+        {% for g in recurring_groups %}
+        <tr>
+          <td>{{ g.label }}</td>
+          <td>{{ g.category }}</td>
+          <td>{{ g.frequency }}</td>
+          <td>{{ g.typical_amount }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    <h2>Insights</h2>
+    {% for insight in insights %}
+    <div class="insight">
+      {% if insight.source == "ai" %}<span class="badge">AI</span>{% endif %}
+      {{ insight.text }}
+    </div>
+    {% endfor %}
+
+    <p class="footer">RupeeRadar · Privacy-first analysis · Data auto-deletes after 72 hours</p>
+  </div>
+</body>
+</html>

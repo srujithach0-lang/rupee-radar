@@ -1,0 +1,43 @@
+AI Challenge Problem Statement: RupeeRadar
+Background
+Working professionals often make hundreds of monthly transactions across UPI, cards, bank transfers, subscriptions, EMIs, rent, shopping, food delivery, travel, and investments. Although bank statements contain all this information, they are difficult to understand because transaction descriptions are messy, inconsistent, and hard to categorize manually.
+Challenge
+Build RupeeRadar, an AI-powered personal finance assistant that helps users understand where their money is going by analyzing their bank statement data.
+The application should allow a user to upload bank statement data, extract and clean transactions, categorize expenses, detect recurring payments, generate spending insights, and present the results in a simple dashboard or report.
+Objective
+Create an end-to-end solution that converts raw financial transaction data into meaningful personal finance insights.
+The solution should help users answer questions such as:
+What are my biggest spending categories?
+How much did I spend this month?
+Which transactions are recurring subscriptions or EMIs?
+What was my biggest transaction?
+What are the top insights from my spending behavior?
+Core Requirements
+The solution should:
+Accept bank statement data as input.
+Extract or clean transactions into a structured format.
+Categorize transactions into meaningful groups such as Food, Travel, Shopping, Bills, EMI, Subscriptions, Salary, Rent, Investments, and Other.
+Identify recurring transactions such as subscriptions, EMIs, rent, SIPs, or insurance payments.
+Calculate key financial metrics such as total income, total spend, savings, top categories, and biggest transactions.
+Generate clear, human-readable spending insights using actual transaction amounts.
+Present the final output through a simple user interface, dashboard, or downloadable report.
+Expected Output
+Participants should submit a working prototype that demonstrates:
+Cleaned transaction data
+Categorized expenses
+Recurring payment detection
+Spend summary dashboard
+At least three personalized financial insights
+A final report or visual summary that can be shared
+Evaluation Criteria
+Submissions will be evaluated on:
+Accuracy of transaction cleaning and categorization
+Quality of financial insights
+Ability to handle real-world messy transaction descriptions
+Simplicity and usefulness of the user experience
+Completeness of the end-to-end workflow
+Privacy-conscious handling of sensitive financial data
+Constraint
+The solution should prioritize a working end-to-end prototype over perfect support for every bank format. Participants may choose their own technology stack and implementation approach.
+Final Deliverable
+A deployed or locally runnable application that takes raw bank statement data and produces a clear personal finance summary showing where the user’s money is going.

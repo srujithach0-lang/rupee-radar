@@ -1,0 +1,33 @@
+{
+  "merchants": {
+    "SWIGGY": { "category": "Food", "aliases": ["SWIGGY INSTAMART", "INSTAMART"] },
+    "ZOMATO": { "category": "Food", "aliases": ["ZOMATO ONLINE"] },
+    "DOMINOS": { "category": "Food", "aliases": ["DOMINOS PIZZA"] },
+    "STARBUCKS": { "category": "Food", "aliases": [] },
+    "BIGBASKET": { "category": "Food", "aliases": [] },
+    "UBER": { "category": "Travel", "aliases": ["UBER INDIA", "UBER EATS"] },
+    "OLA": { "category": "Travel", "aliases": ["OLA CABS"] },
+    "IRCTC": { "category": "Travel", "aliases": [] },
+    "MAKEMYTRIP": { "category": "Travel", "aliases": [] },
+    "AMAZON": { "category": "Shopping", "aliases": ["AMAZON PAY", "AMAZON PRIME", "AMAZON PAY CASHBACK"] },
+    "FLIPKART": { "category": "Shopping", "aliases": ["FLIPKART PAYMENTS"] },
+    "MYNTRA": { "category": "Shopping", "aliases": ["MYNTRA DESIGNS"] },
+    "AIRTEL": { "category": "Bills", "aliases": ["AIRTEL PAYMENT"] },
+    "JIO": { "category": "Bills", "aliases": ["JIO PREPAID"] },
+    "BESCOM": { "category": "Bills", "aliases": [] },
+    "SMS CHARGES": { "category": "Bills", "aliases": [] },
+    "LIC": { "category": "Bills", "aliases": ["LIC PREMIUM"] },
+    "NETFLIX": { "category": "Subscriptions", "aliases": ["NETFLIX COM"] },
+    "SPOTIFY": { "category": "Subscriptions", "aliases": ["SPOTIFY INDIA"] },
+    "YOUTUBE": { "category": "Subscriptions", "aliases": ["YOUTUBE PREMIUM"] },
+    "HOME LOAN": { "category": "EMI", "aliases": ["HOME LOAN EMI"] },
+    "EMI": { "category": "EMI", "aliases": [] },
+    "RENT": { "category": "Rent", "aliases": ["NOBROKER", "RENT NOBROKER"] },
+    "ZERODHA": { "category": "Investments", "aliases": ["SIP ZERODHA", "ZERODHA BSE"] },
+    "GROWW": { "category": "Investments", "aliases": ["GROWW SIP"] },
+    "SIP": { "category": "Investments", "aliases": [] },
+    "SALARY": { "category": "Salary", "aliases": ["PAYROLL", "ACME CORP"] },
+    "FREELANCE": { "category": "Salary", "aliases": ["CONSULTING"] },
+    "REDEMPTION": { "category": "Investments", "aliases": ["REDEMPTION MF"] }
+  }
+}

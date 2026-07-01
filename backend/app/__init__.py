@@ -1,0 +1,1 @@
+"""RupeeRadar backend application."""

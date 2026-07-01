@@ -1,0 +1,31 @@
+services:
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: sqlite:////app/data/rupee_radar.db
+      CORS_ORIGINS: http://localhost:5173,http://localhost:3000
+    volumes:
+      - sqlite_data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  web:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:8000
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  sqlite_data:
