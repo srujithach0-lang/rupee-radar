@@ -46,8 +46,7 @@ export default function HomePage() {
 
         {apiStatus === "error" && (
           <div className="mb-6 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-800">
-            Cannot reach the API. Start the backend with{" "}
-            <code className="rounded bg-red-100 px-1">uvicorn app.main:app --reload</code>
+            Cannot reach the API. Please try again in a moment or contact support if the issue persists.
           </div>
         )}
 
